@@ -1,6 +1,7 @@
 {
   "name": "fptoreact",
   "version": "0.1.0",
+  "homepage": "https://magomedov-m.github.io/kinopoisk",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
