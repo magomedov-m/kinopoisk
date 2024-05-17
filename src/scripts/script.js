@@ -37,12 +37,6 @@
 //     inputSearch.style.transform = 'translate(-140%, 0)';
 // });
 
-//Здесь я использовал этот код в качестве примера
-//Также напишу простенькую функцию, чтобы провести тест внесения изменений в проект через Github Desctop
-function culc(l, r) {
-    return r - l;
-};
 
-console.log(culc(2, 9));
 
 
