@@ -6,31 +6,40 @@ import Items from "./Items";
 
 
 function Main(props) {
-  // const API_KEY = 'https://api.kinopoisk.dev/v1.4/movie?year=2023&genres.name=все';
-  // const headers = {
-  //   'X-API-KEY': '1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT'
-  // };
+  const API_LINK = 'https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=криминал';
+  const headers = {
+    'X-API-KEY': '1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT'
+  };
 
-  const API_KEY = 'c032e2d7';
-  const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+  const API_TOKEN = 'c032e2d7';
+  const API_URL = `http://www.omdbapi.com/?apikey=${API_TOKEN}`;
 
   let [arrFilms, setArrFilms] = useState([]);
 
+
   const searchMovies = async (title) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
-    setArrFilms(data.Search);
-    
-    // console.log(arrFilms);
+    try {
+      const response = await fetch(API_LINK, {
+        headers: headers
+      });
+
+      if (!response.ok) {
+        throw new Error (`HTTP error! status: ${response.status}`);
+      }
+
+      const movies = await response.json();
+      setArrFilms(movies.docs)
+      console.log(movies.docs)
+    }catch (error) {
+      console.error(error)
+    }
+   
   }
+
 
   useEffect(() => {
     searchMovies()
   }, []);
-
-  // useEffect(() => {
-  //   console.log(props.orders)
-  // }, [props.orders]);
 
   const addToOrder = (item) => {
     props.addToOrder(item)

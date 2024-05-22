@@ -16,12 +16,12 @@ export default function Item(props) {
     //     <div onClick={() => props.onAdd(props.item)} className='heart' ><FaRegHeart /></div>
     // </div>
     <div className="movieCard">
-      <img className='poster' src={props.item.Poster} alt="Movie Poster"/>
+      <img className='poster' src={props.item.poster?.previewUrl} alt="Movie Poster"/>
       <div className="overlay">
-        <div className="imdbRating">{props.item.imdbID}</div>
+        <div className="imdbRating">{props.item.rating.imdb}</div>
         <div className="movieInfo">
-          <h2>{props.item.Title}</h2>
-          <span>{props.item.Year}</span>
+          <h2>{props.item.alternativeName}</h2>
+          <span>{props.item.year}</span>
         </div>
       </div>
     </div>
