@@ -38,7 +38,6 @@ function Main(props) {
 
   return (
       <div className="container">
-        <h1>Hello</h1>
         {/* <Icons /> */}
         <Items arrFilms={arrFilms} onAdd={addToOrder} />
       </div>

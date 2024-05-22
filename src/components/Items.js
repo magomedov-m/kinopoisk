@@ -7,10 +7,12 @@ import Item from './Item'
 export default function Items(props) {
   // console.log("Items:", props)
   return (
-    <div className='film-card' >
+    // <div className='film-card' >
+    <>
       {props.arrFilms.map(el => (
           <Item key={el.imdbID} item={el} onAdd={props.onAdd} />
       ))}
-      </div>
+    </> 
+      // </div>
   )
 }
