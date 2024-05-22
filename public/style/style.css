@@ -1,143 +1,107 @@
-@media (max-width: 540px) {
-    .container {
-      display: flex;
-      justify-content: space-around;
-      position: relative;
-      width: 100%;
-      height: 1020px;
-      margin: 0 auto;
-    }
-    .container__img {
-      position: absolute;
-      width: 100%;
-      margin: 0 auto;
-      -o-object-fit: cover;
-         object-fit: cover;
-    }
-    .icons {
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      margin: 0 auto;
-      top: 30px;
-      width: 100%;
-    }
-    .icons__icon {
-      margin: 0 5%;
-      width: 25px;
-    }
-    .icons__search-input {
-      position: absolute;
-      z-index: 99;
-      left: 100%;
-      height: 30px;
-      width: 50%;
-      border-radius: 30px;
-      background-color: rgba(255, 255, 255, 0.3);
-      -webkit-backdrop-filter: blur(3px);
-              backdrop-filter: blur(3px);
-      border: 3px #fff solid;
-      transition: 1.5s;
-      transform: translate(0%, 0);
-    }
-    .menu {
-      z-index: 1;
-      display: flex;
-      justify-content: space-around;
-      background-color: rgba(255, 255, 255, 0.3);
-      -webkit-backdrop-filter: blur(3px);
-              backdrop-filter: blur(3px);
-      position: absolute;
-      top: 90px;
-      width: 100%;
-      height: 60px;
-      border-radius: 50px;
-      color: #ffffff;
-    }
-    .menu__category {
-      padding-top: 20px;
-      padding-bottom: 3px;
-      border-radius: 30px;
-      color: #ffffff;
-      width: 25%;
-      align-items: center;
-      text-align: center;
-      height: 36px;
-      display: inline-block;
-      transition: 0.7s;
-      font-size: 1.01em;
-    }
-    .menu__category:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-    .film-card {
-      width: 70%;
-      height: 100%;
-      position: relative;
-      margin-top: 20px;
-      margin: 0 auto;
-      border-radius: 30px;
-      overflow-y: scroll;
-    }
-    .film-card__info {
-      width: 100%;
-      height: auto;
-      position: relative;
-      margin-top: 10px;
-    }
-    .film-card__img {
-      width: 100%;
-      height: auto;
-      border-radius: 30px;
-      position: relative;
-    }
-    .film-card__rating {
-      background-color: #e0d700;
-      border-radius: 1rem;
-      position: absolute;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      color: #ffffff;
-      margin: 25px;
-      margin-left: -50%;
-      width: 103px;
-      height: 40px;
-      font-size: 18px;
-    }
-    .film-card__name {
-      position: absolute;
-      margin-top: 75%;
-      margin-left: -50%;
-      color: #f31717;
-      text-align: center;
-      width: 40%;
-      height: auto;
-      font-size: 1.5em;
-    }
-  }
-  .icons__icon {
-    color: #ffffff;
-  }
+.container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: 1920px;
+  height: 1020px;
+  border: red solid 1px;
+  margin: 0 auto;
+  background-color: #333;
+}
+/* .icons {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  top: 30px;
+  width: 100%;
+} */
+/* .icons__icon {
+  margin: 0 5%;
+  width: 25px;
+} */
+/* .icons__search-input {
+  position: absolute;
+  z-index: 99;
+  left: 100%;
+  height: 30px;
+  width: 50%;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border: 3px #fff solid;
+  transition: 1.5s;
+  transform: translate(0%, 0);
+} */
 
+.film-card {
+  width: 70%;
+  height: 100%;
+  position: relative;
+  margin-top: 20px;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+.film-card__info {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 10px;
+}
+.film-card__img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  position: relative;
+}
+.film-card__rating {
+  background-color: #e0d700;
+  border-radius: 1rem;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  margin: 25px;
+  margin-left: -50%;
+  width: 103px;
+  height: 40px;
+  font-size: 18px;
+}
+.film-card__name {
+  position: absolute;
+  margin-top: 75%;
+  margin-left: -50%;
+  color: #f31717;
+  text-align: center;
+  width: 40%;
+  height: auto;
+  font-size: 1.5em;
+}
+.icons__icon {
+  color: #ffffff;
+}
+
+/* Стили для страницы "Избранное" */
 .favorites-container {
-    width: 90%;
-    min-height: 140px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  width: 90%;
+  min-height: 140px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .movie-card {
-    width: 30%;
-    min-height: 190px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    box-sizing: border-box;
-    margin: 5px;
+  width: 30%;
+  min-height: 190px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 5px;
 }
 
 .film-card__info {
@@ -243,4 +207,26 @@ header {
 
 header a {
   color: #333;
+}
+
+
+@media (max-width: 1200px) {
+  .container{
+    width: 1140px;
+  }
+}
+@media (max-width: 992px) {
+  .container{
+    width: 720px;
+  }
+}
+@media (max-width: 768px) {
+  .container{
+    width: 540px;
+  }
+}
+@media (max-width: 540px) {
+  .container{
+    width: 100%;
+  }
 }
