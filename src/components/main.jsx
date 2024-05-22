@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import BackImg from "./backimg";
 import Icons from './Icon'
-import Menu from "./menu";
 import Items from "./Items";
 
 
@@ -12,14 +11,14 @@ function Main(props) {
   const API_KEY = 'c032e2d7';
   const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
 
-  let data;
-  arrFilms = data;
+  // let data;
+  // arrFilms = data;
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
+    const arrFilms = await response.json();
 
-    console.log(data);
+    console.log(arrFilms.Search);
   }
 
   // const API_KEY = 'https://api.kinopoisk.dev/v1.4/movie?year=2023&genres.name=все';
@@ -31,11 +30,9 @@ function Main(props) {
     searchMovies()
   }, []);
 
-  
-  
-  // useEffect(() => {
-  //   console.log(props.orders)
-  // }, [props.orders]);
+  useEffect(() => {
+    console.log(props.orders)
+  }, [props.orders]);
 
   const addToOrder = (item) => {
     props.addToOrder(item)
@@ -47,7 +44,6 @@ function Main(props) {
       <div className="container">
         <BackImg/>
         <Icons />
-        <Menu/>
         <Items arrFilms={arrFilms} onAdd={addToOrder} />
       </div>
   );
