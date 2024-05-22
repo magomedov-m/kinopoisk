@@ -6,12 +6,11 @@ import IconFav from "./components/IconFav";
 import { useRef, useState, useEffect } from "react";
 
 
-
-
 function App() {
   const headerRef = useRef(null);
   const [showFavourites, setShowFavourites] = useState(true);
 
+  // Добавление в массив понравившегося фильма: Избранное
   let [orders, setOrders] = useState([]);
   
   const addToOrder = (item) => {
@@ -25,30 +24,10 @@ function App() {
     setOrders([...orders, item])
     };
   }
-
+  // Удаление фильма из массива Избранное
   const deleteOrder = (id) => {
     setOrders(orders.filter(el => el.id !== id))
   }
-
-  // Отвечает за скрытие и всплытие иконки "Избранное"
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const headerHeight = headerRef.current.offsetHeight;
-  //     const scrollPosition = window.pageYOffset;
-
-  //     if (scrollPosition > headerHeight) {
-  //       setShowFavourites(false);
-  //     } else {
-  //       setShowFavourites(true);
-  //     }
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
 
   return (
     <>
