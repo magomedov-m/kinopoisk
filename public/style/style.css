@@ -9,50 +9,7 @@
   margin: 0 auto;
   background-color: #333;
 }
-/* .icons {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  top: 30px;
-  width: 100%;
-} */
-/* .icons__icon {
-  margin: 0 5%;
-  width: 25px;
-} */
-/* .icons__search-input {
-  position: absolute;
-  z-index: 99;
-  left: 100%;
-  height: 30px;
-  width: 50%;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  border: 3px #fff solid;
-  transition: 1.5s;
-  transform: translate(0%, 0);
-} */
 
-/* .film-card {
-  width: 70%;
-  height: 100%;
-  position: relative;
-  margin-top: 20px;
-  margin: 0 auto;
-  border-radius: 30px;
-} */
-
-/* Карточка фильмов */
-/* .film-card__info {
-  width: 100%;
-  height: 200px;
-  position: relative;
-  /* margin-top: 10px; */
-  /* margin: 20px;
-} */
 .film-card__img {
   position: relative;
   width: 100%;
