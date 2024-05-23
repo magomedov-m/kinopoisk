@@ -3,13 +3,14 @@
   justify-content: space-around;
   flex-wrap: wrap;
   position: relative;
-  /* width: 1920px; */
   height: auto;
   border: red solid 1px;
   margin: 0 auto;
   background-color: #333;
 }
-
+.container-favorites {
+  background-color: #333;
+}
 .film-card__img {
   position: relative;
   width: 100%;
@@ -77,7 +78,6 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   position: relative;
-  /* overflow-y: scroll; */
 }
 
 /* Стили для иконки в карточке */
@@ -112,14 +112,14 @@
 .movie-card .close-icon {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 25px;
   transform: scale(1.5);
+  transition: 0.3s;
   color: rgb(255, 0, 0);
   cursor: pointer;
 }
-
-.close-icon {
-  transform: scale(1.8);
+.close-icon:hover {
+  transform: scale(1.9);
 }
 
 .movie-card .movie-name {
@@ -132,24 +132,23 @@
 }
 
 .card-img {
-  /* padding: 0; */
   object-fit: contain;
   width: auto;
   height: 100%;
 }
 .heart {
-  position: absolute;
-  margin-top: 20px;
-  transition: 0.6s;
+  margin: 0 auto;
+  transition: 0.3s;
   transform: scale(1.4);
 }
 .heart:hover {
-  transform: scale(2);
-  color: red;
+  transform: scale(1.8);
+  color: rgb(255, 0, 0);
 }
 
 .allFilms {
   width: 100%;
+  font-size: 25px;
 }
 
 /* Стили к иконке роутинга: избранное */
@@ -168,7 +167,7 @@ header {
 }
 
 header a {
-  color: #333;
+  color: #ff0000;
 }
 
 
@@ -226,6 +225,7 @@ header a {
 }
 
 .imdbRating {
+  position: absolute;
   background-color: #e0d700;
   width: 80px;
   padding: 5px;

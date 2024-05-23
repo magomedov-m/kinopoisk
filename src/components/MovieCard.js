@@ -6,9 +6,9 @@ export default function MovieCard({movie, onDelete}) {
     console.log(movie)
   return (
     <div className="movie-card">
-        <img src={movie.Poster} alt="Картинка"/>
-        <span className="close-icon" onClick={onDelete}><MdOutlineDeleteOutline /></span>
-        <h2 className="movie-name">{movie.Title}</h2>
+        <img src={movie.poster.previewUrl} alt="Картинка"/>
+        <span className="close-icon" onClick={onDelete}><MdOutlineDeleteOutline className='close-icon__logo'/></span>
+        <h2 className="movie-name">{movie.alternativeName}</h2>
     </div>
   )
 }
