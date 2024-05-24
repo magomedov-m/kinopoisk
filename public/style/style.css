@@ -144,6 +144,7 @@
 .heart:hover {
   transform: scale(1.8);
   color: rgb(255, 0, 0);
+  background-color: rgb(255, 0, 0);
 }
 
 .allFilms {
