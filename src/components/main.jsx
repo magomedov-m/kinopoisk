@@ -9,8 +9,8 @@ function Main(props) {
     'X-API-KEY': '1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT'
   };
 
-  const API_TOKEN = 'c032e2d7';
-  const API_URL = `http://www.omdbapi.com/?apikey=${API_TOKEN}`;
+  // const API_TOKEN = 'c032e2d7';
+  // const API_URL = `http://www.omdbapi.com/?apikey=${API_TOKEN}`;
 
   let [arrFilms, setArrFilms] = useState([]);
 
@@ -21,14 +21,14 @@ function Main(props) {
       });
 
       if (!response.ok) {
-        throw new Error (`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP статус: ${response.status}`)
       }
 
       const movies = await response.json();
       setArrFilms(movies.docs)
       console.log(movies.docs)
     }catch (error) {
-      console.error(error)
+      alert(`Упс... Возникла ошибка: ${error}`)
     }
    
   }
