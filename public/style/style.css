@@ -11,6 +11,9 @@
 .container-favorites {
   background-color: #333;
 }
+.title {
+  width: 100%;
+}
 .film-card__img {
   position: relative;
   width: 100%;
@@ -144,7 +147,6 @@
 .heart:hover {
   transform: scale(1.8);
   color: rgb(255, 0, 0);
-  background-color: rgb(255, 0, 0);
 }
 
 .allFilms {
@@ -172,28 +174,6 @@ header a {
 }
 
 
-@media (max-width: 1200px) {
-  .container{
-    width: 1140px;
-  }
-}
-@media (max-width: 992px) {
-  .container{
-    width: 720px;
-  }
-}
-@media (max-width: 768px) {
-  .container{
-    width: 540px;
-  }
-}
-@media (max-width: 540px) {
-  .container{
-    width: 100%;
-  }
-}
-
-
 /* MovieCard.module.css */
 .movieCard {
   margin: 20px;
@@ -207,8 +187,9 @@ header a {
 
 .poster {
   width: 100%; /* ширина изображения равна ширине блока */
-  height: 100%; /* высота изображения равна высоте блока */
+  height: 85%; /* высота изображения равна высоте блока */
   object-fit: cover; /* чтобы изображение заполняло весь блок */
+  border-radius: 15px;
 }
 
 .overlay {
@@ -238,7 +219,7 @@ header a {
 
 .movieInfo {
   width: 90%;
-  margin: 140px 0 70px 0; /* чтобы название фильма и дата выпуска были в 70% от верхней границы */
+  margin: 140px 0 40px 0; /* чтобы название фильма и дата выпуска были в 70% от верхней границы */
 }
 
 .movieInfo h2 {
@@ -250,3 +231,27 @@ header a {
   font-size: 18px;
   color: #ccc;
 }
+
+
+
+@media (min-width: 1200px) {
+  .container{
+    width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container{
+    width: 720px;
+  }
+}
+@media (min-width: 768px) {
+  .container{
+    width: 540px;
+  }
+}
+@media (min-width: 540px) {
+  .container{
+    width: 100%;
+  }
+}
+

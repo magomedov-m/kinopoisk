@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import BackImg from "./backimg";
-// import Icons from './Icon'
 import Items from "./Items";
-
 
 
 function Main(props) {
@@ -15,7 +13,6 @@ function Main(props) {
   const API_URL = `http://www.omdbapi.com/?apikey=${API_TOKEN}`;
 
   let [arrFilms, setArrFilms] = useState([]);
-
 
   const searchMovies = async (title) => {
     try {
@@ -35,8 +32,6 @@ function Main(props) {
     }
    
   }
-
-
   useEffect(() => {
     searchMovies()
   }, []);
@@ -47,7 +42,7 @@ function Main(props) {
 
   return (
       <div className="container">
-        {/* <Icons /> */}
+        <div className="title"><h1>kinopoisk</h1></div>
         <Items arrFilms={arrFilms} onAdd={addToOrder} />
       </div>
   );
