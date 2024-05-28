@@ -68,6 +68,10 @@
   padding: 10px;
   box-sizing: border-box;
   margin: 5px;
+  transition: 0.3s;
+}
+.movie-card:hover {
+  transform: scale(0.95);
 }
 
 .film-card__info {
@@ -118,11 +122,12 @@
   right: 25px;
   transform: scale(1.5);
   transition: 0.3s;
-  color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 .close-icon:hover {
   transform: scale(1.9);
+  color: #ff0000;
 }
 
 .movie-card .movie-name {
@@ -183,6 +188,10 @@ header a {
   overflow: hidden; /* чтобы изображение не выходило за рамки блока */
   border-radius: 10px; /* радиус скругления углов */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень */
+  transition: 0.3s;
+}
+.movieCard:hover {
+  transform: scale(1.06);
 }
 
 .poster {

@@ -4,7 +4,7 @@ import Items from "./Items";
 
 
 function Main(props) {
-  const API_LINK = 'https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=криминал';
+  // const API_LINK = 'https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=криминал';
   const headers = {
     'X-API-KEY': '1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT'
   };
@@ -42,7 +42,7 @@ function Main(props) {
 
   return (
       <div className="container">
-        <div className="title"><h1>kinopoisk</h1></div>
+        <article className="title"><h1>Kinopoisk</h1></article>
         <Items arrFilms={arrFilms} onAdd={addToOrder} />
       </div>
   );
