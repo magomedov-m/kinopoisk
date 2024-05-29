@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
-import BackImg from "./backimg";
 import Items from "./Items";
 
 
 function Main(props) {
-  // const API_LINK = 'https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=криминал';
+  const API_LINK = 'https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=криминал';
   const headers = {
     'X-API-KEY': '1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT'
   };
@@ -26,7 +25,6 @@ function Main(props) {
 
       const movies = await response.json();
       setArrFilms(movies.docs)
-      console.log(movies.docs)
     }catch (error) {
       alert(`Упс... Возникла ошибка: ${error}`)
     }
