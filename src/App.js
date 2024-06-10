@@ -3,7 +3,7 @@ import Main from "./components/Main";
 import { Routes, Route, Link } from "react-router-dom";
 import Favourites from "./components/favourites";
 import IconFav from "./components/IconFav";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 
 
 function App() {

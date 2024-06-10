@@ -4,9 +4,9 @@
   flex-wrap: wrap;
   position: relative;
   height: auto;
-  border: red solid 1px;
   margin: 0 auto;
   background-color: #333;
+  padding: 40px 0;
 }
 .container-favorites {
   background-color: #333;
