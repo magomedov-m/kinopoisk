@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import Items from "./Items";
+import Logo from "./Logo";
 
 
 function Main(props) {
   const btn = document.querySelectorAll('.btn')
-  // console.log(btn[0].textContent)
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', function() {
       console.log(btn[i].textContent)
@@ -50,6 +50,7 @@ function Main(props) {
 
   return (
       <div className="container">
+        <Logo />
         <Items arrFilms={arrFilms} onAdd={addToOrder} />
       </div>
   );

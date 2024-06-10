@@ -8,6 +8,13 @@
   background-color: #333;
   padding: 40px 0;
 }
+.logo {
+  width: 100%;
+}
+.logo, img {
+  display: inline-block;
+  width: 80%;
+}
 .container-favorites {
   background-color: #333;
 }
