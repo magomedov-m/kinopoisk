@@ -72,7 +72,7 @@
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
+  /* padding: 10px; */
   box-sizing: border-box;
   margin: 5px;
   transition: 0.3s;
@@ -103,7 +103,7 @@
 
 .shop-cart-button.active {
   color: #f31717;
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
 }
 
 /* Карточка с фильмом на странице "Избранное" */
@@ -127,13 +127,12 @@
   position: absolute;
   top: 20px;
   right: 25px;
-  transform: scale(1.5);
+  transform: scale(2);
   transition: 0.3s;
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
 .close-icon:hover {
-  transform: scale(1.9);
   color: #ff0000;
 }
 
@@ -203,7 +202,7 @@ header a {
 
 .poster {
   width: 100%; /* ширина изображения равна ширине блока */
-  height: 85%; /* высота изображения равна высоте блока */
+  height: 83%; /* высота изображения равна высоте блока */
   object-fit: cover; /* чтобы изображение заполняло весь блок */
   border-radius: 15px;
 }
@@ -234,8 +233,8 @@ header a {
 }
 
 .movieInfo {
-  width: 90%;
-  margin: 140px 0 40px 0; /* чтобы название фильма и дата выпуска были в 70% от верхней границы */
+  width: 95%;
+  margin: 140px 0 25px 0; /* чтобы название фильма и дата выпуска были в 70% от верхней границы */
 }
 
 .movieInfo h2 {

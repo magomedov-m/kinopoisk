@@ -3,6 +3,6 @@ import logo from '../assets/img/KinoPoisk-Logo.wine.png'
 
 export default function Logo() {
   return (
-    <div className='logo'><img src={logo} /></div>
+    <div className='logo'><img src={logo} alt='Логотип' /></div>
   )
 }
