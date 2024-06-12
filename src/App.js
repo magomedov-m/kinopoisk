@@ -1,7 +1,7 @@
 import React from "react";
 import Main from "./components/Main";
 import { Routes, Route, Link } from "react-router-dom";
-import Favourites from "./components/favourites";
+import Favourites from "./components/Favourites";
 import IconFav from "./components/IconFav";
 import { useRef, useState } from "react";
 
@@ -11,7 +11,7 @@ function App() {
   const [showFavourites, setShowFavourites] = useState(true);
 
   // Добавление в массив понравившегося фильма: Избранное
-  let [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
   
   const addToOrder = (item) => {
     let isInArray = false;

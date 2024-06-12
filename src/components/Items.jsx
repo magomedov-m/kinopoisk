@@ -5,7 +5,6 @@ import Item from './Item'
 // Для создания самой карточки данный передаются по props в компонент Item
 
 export default function Items(props) {
-  // console.log("Items:", props)
   return (
     <>
       {props.arrFilms.map(el => (
