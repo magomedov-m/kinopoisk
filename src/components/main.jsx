@@ -1,5 +1,4 @@
 import React from "react";
-// import Items from "./Items";
 import Movies from "./Movies";
 import Logo from "./Logo";
 
@@ -14,7 +13,6 @@ function Main(props) {
       <div className="container">
         <Logo />
         <Movies onAdd={addToOrder} />
-        {/* <Items arrFilms={arrFilms} onAdd={addToOrder} /> */}
       </div>
   );
 }
