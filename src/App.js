@@ -3,10 +3,9 @@ import Main from "./components/Main";
 import { Routes, Route, Link } from "react-router-dom";
 import Favourites from "./components/Favourites";
 import IconFav from "./components/IconFav";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function App() {
-  const headerRef = useRef(null);
   const [showFavourites, setShowFavourites] = useState(true);
 
   // Добавление в массив понравившегося фильма: Избранное
@@ -30,7 +29,7 @@ function App() {
 
   return (
     <>
-      <header ref={headerRef}>
+      <header>
         {showFavourites && (
           <Link to="/favourites">
             <IconFav />
@@ -44,7 +43,7 @@ function App() {
         />
         <Route
           path="/favourites"
-          element={<Favourites orders={orders} onDelete={deleteOrder} />}
+          element={<Favourites onDelete={deleteOrder} orders={orders}  />}
         />
       </Routes>
     </>
