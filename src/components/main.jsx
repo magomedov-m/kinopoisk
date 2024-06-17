@@ -1,6 +1,7 @@
 import React from "react";
 import Movies from "./Movies";
 import Logo from "./Logo";
+import Categories from "./Categories";
 
 
 function Main(props) {
@@ -12,6 +13,7 @@ function Main(props) {
   return (
       <div className="container">
         <Logo />
+        <Categories/>
         <Movies onAdd={addToOrder} />
       </div>
   );
