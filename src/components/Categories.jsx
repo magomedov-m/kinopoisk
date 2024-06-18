@@ -71,8 +71,8 @@ export default function Categories(props) {
 
   return (
     <div>
-      {categories.map((el, id) => (
-        <Cat key={id} onClick={() => props.chooseCategories(el.key)}>{el.name}</Cat>
+      {categories.map((el, idx) => (
+        <Cat key={idx} >{el.name}</Cat>
       ))}
     </div>
   );
