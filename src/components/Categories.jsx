@@ -15,31 +15,64 @@ const Cat = styled.div`
 
   &:hover {
     border-color: orange;
-    transform: scale(1.1)
+    transform: scale(1.1);
   }
 `;
 
-
-export default function Categories() {
-  const cat = [
-    "триллер",
-    "криминал",
-    "драма",
-    "боевик",
-    "фантастика",
-    "мелодрама",
-    "детектив",
-    "ужасы",
-    "мультфильм",
-    "приключения",
-    "фэнтези",
+export default function Categories(props) {
+  const categories = [
+    {
+      key: "триллер",
+      name: "триллер",
+    },
+    {
+      key: "криминал",
+      name: "криминал",
+    },
+    {
+      key: "драма",
+      name: "драма",
+    },
+    {
+      key: "боевик",
+      name: "боевик",
+    },
+    {
+      key: "фантастика",
+      name: "фантастика",
+    },
+    {
+      key: "мелодрама",
+      name: "мелодрама",
+    },
+    {
+      key: "детектив",
+      name: "детектив",
+    },
+    {
+      key: "ужасы",
+      name: "ужасы",
+    },
+    {
+      key: "мультфильмы",
+      name: "мультфильм",
+    },
+    {
+      key: "приключения",
+      name: "приключения",
+    },
+    {
+      key: "фэнтези",
+      name: "фэнтези",
+    },
   ];
+
+  
+
   return (
     <div>
-      {cat.map((el, id) => (
-        <Cat key={id}>
-          {el}
-        </Cat>
+      {categories.map((el, id) => (
+        <Cat key={id} onClick={() => props.chooseCategories(el.key)}>{el.name}</Cat>
       ))}
     </div>
   );
