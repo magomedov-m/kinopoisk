@@ -7,15 +7,11 @@ function Main(props) {
   const addToOrder = (item) => {
     props.addToOrder(item);
   };
-
-  function chooseCategory(category) {
-    console.log(category);
-  }
-
+  
   return (
     <div className="container">
       <Logo />
-      <Categories chooseCategory={chooseCategory} />
+      <Categories />
       <Movies onAdd={addToOrder} />
     </div>
   );
