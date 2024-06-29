@@ -1,4 +1,4 @@
-(Ссылка Vercel) - [https://kinopoisk-tan.vercel.app/  ]
+[Ссылка Vercel] - (https://kinopoisk-tan.vercel.app/)
 # Первый проект на React
 # Технологии:
 + React
