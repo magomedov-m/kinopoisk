@@ -1,3 +1,4 @@
+[Перейти на Vercel](https://kinopoisk-tan.vercel.app/)
 # Первый проект на React
 # Технологии:
 + React
@@ -5,4 +6,5 @@
 + React-Context
 + JavaScript
 + Fetch
+
 
