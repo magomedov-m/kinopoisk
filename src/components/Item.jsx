@@ -8,7 +8,7 @@ export default function Item(props) {
     <div className="movieCard">
       <img className='poster' src={props.item.poster?.previewUrl} alt="Movie Poster"/>
       <div className="overlay">
-        <div onClick={() => props.onAdd(props.item)} className='heart'><FaRegHeart/></div>
+        <div onClick={() => props.onAdd(props.item)} className='heart'><FaRegHeart /></div>
         <div className="imdbRating">imdb {props.item.rating.imdb}</div>
         
         <div className="movieInfo">

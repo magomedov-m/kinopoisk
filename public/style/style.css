@@ -60,6 +60,15 @@
   color: #ffffff;
 }
 
+.set-category {
+  padding: 30px;
+}
+.title-category {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: rgb(212, 140, 6);
+}
+
 /* Стили для страницы "Избранное" */
 .favorites-container {
   width: 90%;
@@ -160,7 +169,6 @@
   transform: scale(1.4);
 }
 .heart:hover {
-  transform: scale(1.8);
   color: rgb(255, 0, 0);
 }
 

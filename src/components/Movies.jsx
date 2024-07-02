@@ -7,6 +7,9 @@ export default function Movies(props) {
   const Cat = styled.div`
     display: inline-block;
     background: #f2f2f2;
+    height: 20px;
+    width: 100px;
+    text-align: center;
     border-radius: 50px;
     padding: 10px 20px;
     margin-bottom: 25px;
@@ -19,6 +22,13 @@ export default function Movies(props) {
     &:hover {
       border-color: orange;
       transform: scale(1.1);
+    }
+
+    @media (max-width: 800px) {
+      &:hover {
+        border-color: transparent;
+        transform: none;
+      }
     }
   `;
   // Здесь хранится массив с категориями
@@ -79,7 +89,7 @@ export default function Movies(props) {
   }
 
   useEffect(() => {
-    chooseCategory()
+    chooseCategory();
   }, [selectedCategory]);
 
   const API_LINK = `https://api.kinopoisk.dev/v1.4/movie?year=2021&genres.name=${selectedCategory}`;
@@ -116,12 +126,14 @@ export default function Movies(props) {
 
   return (
     <>
-      {categories.map((el, idx) => (
-        <Cat key={idx} onClick={() => chooseCategory(el.key)}>
-          {el.name}
-        </Cat>
-      ))}
-
+      <div className="set-category">
+        <h2 className="title-category">Выбрать категорию</h2>
+        {categories.map((el, idx) => (
+          <Cat key={idx} onClick={() => chooseCategory(el.key)}>
+            {el.name}
+          </Cat>
+        ))}
+      </div>
       <Items arrFilms={arrFilms} onAdd={props.onAdd} />
     </>
   );
