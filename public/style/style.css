@@ -17,7 +17,7 @@
 }
 .logo, img {
   display: inline-block;
-  width: 80%;
+  width: 100%;
 }
 .container-favorites {
   background-color: #333;

@@ -11,7 +11,7 @@ function Main(props) {
   return (
     <div className="container">
       <Logo />
-      <Categories />
+      {/* <Categories /> */}
       <Movies onAdd={addToOrder} />
     </div>
   );
