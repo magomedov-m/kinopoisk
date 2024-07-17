@@ -4,26 +4,21 @@ import { useState, useEffect } from "react";
 import Items from "./Items";
 
 export default function Movies(props) {
+  const [selectedCategory, setSelectedCategory] = useState("криминал");
   const Cat = styled.div`
     display: inline-block;
     background: #f2f2f2;
-    height: 20px;
-    width: 100px;
+    height: 40px;
+    width: 200px;
     text-align: center;
     border-radius: 50px;
-    padding: 10px 20px;
     margin-bottom: 25px;
-    margin-right: 15px;
+    margin-right: 20px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: all 500ms ease;
-    font-size: 18px;
-
-    &:hover {
-      border-color: orange;
-      transform: scale(1.1);
-    }
-
+    font-size: 28px;
+    
     @media (max-width: 800px) {
       &:hover {
         border-color: transparent;
@@ -82,7 +77,7 @@ export default function Movies(props) {
     ];
   }
   PopulateCategories();
-  const [selectedCategory, setSelectedCategory] = useState("криминал");
+  
 
   function chooseCategory(keyElem) {
     setSelectedCategory(keyElem);
@@ -129,9 +124,9 @@ export default function Movies(props) {
       <div className="set-category">
         <h2 className="title-category">Выбрать категорию</h2>
         {categories.map((el, idx) => (
-          <Cat key={idx} onClick={() => chooseCategory(el.key)}>
+          <button className="categories-button" key={idx} onClick={() => chooseCategory(el.key)}>
             {el.name}
-          </Cat>
+          </button>
         ))}
       </div>
       <Items arrFilms={arrFilms} onAdd={props.onAdd} />

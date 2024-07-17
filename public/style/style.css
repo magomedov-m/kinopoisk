@@ -1,4 +1,10 @@
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-style: normal;
+}
+
 * {
+  font-family: "Pacifico";
   margin: 0;
   padding: 0;
 }
@@ -15,10 +21,27 @@
 .logo {
   width: 100%;
 }
-.logo, img {
+.logo,
+img {
   display: inline-block;
   width: 100%;
 }
+
+.categories-button {
+  display: inline-block;
+  background: #f2f2f2;
+  height: 40px;
+  width: 200px;
+  text-align: center;
+  border-radius: 50px;
+  margin-bottom: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 500ms ease;
+  font-size: 28px;
+}
+
 .container-favorites {
   background-color: #333;
 }
@@ -55,8 +78,8 @@
   width: 40%;
   height: auto;
   font-size: 1.5em;
-} */
-.icons__icon {
+}
+*/ .icons__icon {
   color: #ffffff;
 }
 
@@ -89,6 +112,7 @@
   box-sizing: border-box;
   margin: 5px;
   transition: 0.3s;
+  cursor: pointer;
 }
 .movie-card:hover {
   transform: scale(0.95);
@@ -196,7 +220,6 @@ header a {
   color: #ff0000;
 }
 
-
 /* MovieCard.module.css */
 .movieCard {
   margin: 20px;
@@ -230,7 +253,11 @@ header a {
   justify-content: space-between;
   padding: 20px;
   color: #fff;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .imdbRating {
@@ -259,26 +286,23 @@ header a {
   color: #ccc;
 }
 
-
-
 @media (min-width: 1200px) {
-  .container{
+  .container {
     width: 1140px;
   }
 }
 @media (min-width: 992px) {
-  .container{
+  .container {
     width: 720px;
   }
 }
 @media (min-width: 768px) {
-  .container{
+  .container {
     width: 540px;
   }
 }
 @media (min-width: 540px) {
-  .container{
+  .container {
     width: 100%;
   }
 }
-
