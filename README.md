@@ -5,6 +5,5 @@
 + React-router
 + React-Context
 + JavaScript
-+ Fetch
 
 
