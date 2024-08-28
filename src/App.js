@@ -30,11 +30,9 @@ function App() {
   return (
     <>
       <header>
-        {showFavourites && (
           <Link to="/favourites">
             <IconFav />
           </Link>
-        )}
       </header>
       <Routes>
         <Route
