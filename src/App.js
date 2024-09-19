@@ -6,7 +6,6 @@ import IconFav from "./components/IconFav";
 import { useState } from "react";
 
 function App() {
-  const [showFavourites, setShowFavourites] = useState(true);
 
   // Добавление в массив понравившегося фильма: Избранное
   const [orders, setOrders] = useState([]);
@@ -29,11 +28,6 @@ function App() {
 
   return (
     <>
-      <header>
-          <Link to="/favourites">
-            <IconFav />
-          </Link>
-      </header>
       <Routes>
         <Route
           path="/"
@@ -41,7 +35,7 @@ function App() {
         />
         <Route
           path="/favourites"
-          element={<Favourites onDelete={deleteOrder} orders={orders}  />}
+          element={<Favourites onDelete={deleteOrder} orders={orders} />}
         />
       </Routes>
     </>

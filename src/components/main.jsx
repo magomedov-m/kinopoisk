@@ -1,7 +1,7 @@
 import React from "react";
 import Movies from "./Movies";
 import Logo from "./Logo";
-import Categories from "./Categories";
+import { Link } from "react-router-dom";
 
 function Main(props) {
   const addToOrder = (item) => {
@@ -10,8 +10,8 @@ function Main(props) {
   
   return (
     <div className="container">
+      <Link to='/favourites' />
       <Logo />
-      {/* <Categories /> */}
       <Movies onAdd={addToOrder} />
     </div>
   );
