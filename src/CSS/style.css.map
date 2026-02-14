@@ -1,1 +1,10 @@
-{"version":3,"sources":["../../public/saas/style.sass","style.css"],"names":[],"mappings":"AAAA;EACI,UAAA;ACCJ","file":"style.css"}
+{
+  "version": 3,
+  "sources": [
+    "../../public/saas/style.sass",
+    "style.css"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACI,UAAA;ACCJ",
+  "file": "style.css"
+}
