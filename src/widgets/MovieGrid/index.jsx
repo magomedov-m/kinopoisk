@@ -1,40 +1,31 @@
-import { useEffect, useState } from "react";
-import { fetchMoviesByGenre } from "../../shared/api/kinopoisk";
+import React, { useEffect, useState } from "react";
+import { fetchMoviesByCategory } from "../../shared/api/kinopoisk";
+import MovieCard from "../../entities/movie/MovieCard";
 import Loader from "../../shared/ui/Loader";
 import EmptyState from "../../shared/ui/EmptyState";
-import MovieCard from "../../entities/movie/MovieCard";
-import MovieFavouriteCard from "../../entities/movie/MovieFavouriteCard";
-import { useFavourites } from "../../features/favourites/context";
 
-export default function MovieGrid({ genre, favourites = false }) {
-  const { items } = useFavourites();
-
+export default function MovieGrid({ category, onAddToFavourites }) {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(!favourites);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (favourites) return;
-
-    setLoading(true);
-    fetchMoviesByGenre(genre)
-      .then(setMovies)
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, [genre, favourites]);
+    const fetchMovies = async () => {
+      setLoading(true);
+      const data = await fetchMoviesByCategory(category);
+      setMovies(data);
+      setLoading(false);
+    };
+    fetchMovies();
+  }, [category]);
 
   if (loading) return <Loader />;
-  if (error) return <EmptyState text="Ошибка загрузки 😢" />;
-
-  const data = favourites ? items : movies;
-
-  if (!data.length) return <EmptyState text="Тут пусто 😕" />;
+  if (!movies.length) return <EmptyState text="Фильмы не найдены 😕" />;
 
   return (
-    <div className="grid">
-      {favourites
-        ? data.map((m) => <MovieFavouriteCard key={m.id} movie={m} />)
-        : data.map((m) => <MovieCard key={m.id} movie={m} />)}
+    <div className="movie-grid">
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} onAddToFavourites={onAddToFavourites} />
+      ))}
     </div>
   );
 }
