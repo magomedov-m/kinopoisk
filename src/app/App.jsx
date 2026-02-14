@@ -1,12 +1,17 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import FavouritesPage from "../pages/FavouritesPage";
+import Header from "../widgets/Header";
+import HomePage from "../pages/HomePage/index.jsx";
+import FavouritesPage from "../pages/FavouritesPage/index.jsx";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/favourites" element={<FavouritesPage />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favourites" element={<FavouritesPage />} />
+      </Routes>
+    </>
   );
 }

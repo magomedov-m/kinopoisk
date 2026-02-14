@@ -1,24 +1,15 @@
-export default function Categories({ value, onChange }) {
-  const list = [
-    "триллер",
-    "криминал",
-    "драма",
-    "боевик",
-    "фантастика",
-    "мелодрама",
-    "детектив",
-    "ужасы",
-    "мультфильм",
-    "приключения",
-    "фэнтези",
-  ];
+import React from "react";
 
+export default function Categories({ categories, selected, onSelect }) {
   return (
-    <div>
-      <h2>Категория</h2>
-      {list.map((g) => (
-        <button key={g} onClick={() => onChange(g)}>
-          {g}
+    <div className="categories">
+      {categories.map((cat) => (
+        <button
+          key={cat}
+          className={cat === selected ? "selected" : ""}
+          onClick={() => onSelect(cat)}
+        >
+          {cat}
         </button>
       ))}
     </div>

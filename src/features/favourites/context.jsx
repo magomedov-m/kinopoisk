@@ -1,29 +1,27 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const FavouritesContext = createContext();
 
+export const useFavourites = () => useContext(FavouritesContext);
+
 export function FavouritesProvider({ children }) {
-  const [items, setItems] = useState([]);
+  const [favourites, setFavourites] = useState([]);
 
-  const add = (movie) => {
-    setItems((prev) => (prev.some((m) => m.id === movie.id) ? prev : [...prev, movie]));
+  const addToFavourites = (movie) => {
+    if (!favourites.find((m) => m.id === movie.id)) {
+      setFavourites([...favourites, movie]);
+    }
   };
 
-  const remove = (id) => {
-    setItems((prev) => prev.filter((m) => m.id !== id));
+  const removeFromFavourites = (id) => {
+    setFavourites(favourites.filter((m) => m.id !== id));
   };
-
-  const toggle = (movie) => {
-    items.some((m) => m.id === movie.id) ? remove(movie.id) : add(movie);
-  };
-
-  const isFavourite = (id) => items.some((m) => m.id === id);
 
   return (
-    <FavouritesContext.Provider value={{ items, add, remove, toggle, isFavourite }}>
+    <FavouritesContext.Provider value={{ favourites, addToFavourites, removeFromFavourites }}>
       {children}
     </FavouritesContext.Provider>
   );
 }
 
-export const useFavourites = () => useContext(FavouritesContext);
+export { FavouritesContext };
