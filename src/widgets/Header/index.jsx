@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../shared/assets/logo.png";
+import logo from "../../shared/assets/img/KinoPoisk-Logo.wine.png";
 
 export default function Header() {
   return (
