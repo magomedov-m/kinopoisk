@@ -7,7 +7,6 @@ export default function MovieCard({ movie }) {
 
   return (
     <div className="movieCard">
-      {/* Верхняя часть — постер */}
       <div className="movieCard__poster">
         {movie.poster?.previewUrl && (
           <img src={movie.poster.previewUrl} alt={movie.name || ""} />
@@ -21,7 +20,6 @@ export default function MovieCard({ movie }) {
         </button>
       </div>
 
-      {/* Нижняя часть — информация */}
       <div className="movieCard__info">
         <h3 className="movieCard__title">
           {movie.name || movie.alternativeName}
