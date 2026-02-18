@@ -1,4 +1,3 @@
-import React from "react";
 import { useFavourites } from "../../features/favourites/context";
 import MovieFavouriteCard from "../../entities/movie/MovieFavouriteCard.jsx";
 import EmptyState from "../../shared/ui/EmptyState.jsx";
