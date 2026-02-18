@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  border-radius: 1px red solid;
 }
 .container {
   display: flex;
@@ -11,6 +12,7 @@
   margin: 0 auto;
   background-color: #333;
   padding: 40px 0;
+  border-radius: 1px red solid;
 }
 .logo {
   width: 100%;
@@ -184,7 +186,7 @@ header {
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
   background-color: white;
@@ -199,67 +201,102 @@ header a {
 
 /* MovieCard.module.css */
 .movieCard {
-  margin: 20px;
-  position: relative;
-  width: 350px; /* ширина карточки */
-  height: 500px; /* высота карточки */
-  overflow: hidden; /* чтобы изображение не выходило за рамки блока */
-  border-radius: 10px; /* радиус скругления углов */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* тень */
-  transition: 0.3s;
-}
-.movieCard:hover {
-  transform: scale(1.06);
-}
-
-.poster {
-  width: 100%; /* ширина изображения равна ширине блока */
-  height: 83%; /* высота изображения равна высоте блока */
-  object-fit: cover; /* чтобы изображение заполняло весь блок */
-  border-radius: 15px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 320px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  color: #fff;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  border-radius: 20px;
+  overflow: hidden;
+  background: #1c1c1c;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
 }
 
-.imdbRating {
+.movieCard:hover {
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Верхняя половина ===== */
+
+.movieCard__poster {
+  position: relative;
+  height: 50%;
+  overflow: hidden;
+}
+
+.movieCard__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.movieCard:hover img {
+  transform: scale(1.05);
+}
+
+/* Сердце */
+.movieCard__heart {
   position: absolute;
-  background-color: #e0d700;
-  width: 80px;
-  padding: 5px;
-  text-align: center;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movieCard__heart.active {
+  color: #ff3b3b;
+}
+
+/* ===== Нижняя половина ===== */
+
+.movieCard__info {
+  height: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #222, #111);
+}
+
+.movieCard__title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.movieCard__meta {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.movieCard__rating {
+  background: #e0b700;
+  color: black;
+  padding: 4px 10px;
   border-radius: 8px;
-  font-size: 18px;
-  margin-top: 20px; /* чтобы IMDB rating был в 20% от верхней границы */
+  width: fit-content;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.movieInfo {
-  width: 95%;
-  margin: 140px 0 25px 0; /* чтобы название фильма и дата выпуска были в 70% от верхней границы */
-}
-
-.movieInfo h2 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.movieInfo span {
-  font-size: 18px;
+.movieCard__genres {
+  font-size: 14px;
   color: #ccc;
 }
 
-
+.movieCard__description {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.4;
+  overflow: hidden;
+}
 
 @media (min-width: 1200px) {
   .container{
