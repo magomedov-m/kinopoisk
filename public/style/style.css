@@ -266,12 +266,12 @@ header a {
   border-radius: 20px;
   overflow: hidden;
   background: #1c1c1c;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px rgba(114, 114, 114, 0.4);
   transition: 0.3s ease;
 }
 
 .movieCard:hover {
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 25px 45px rgba(226, 226, 226, 0.6);
 }
 
 /* ===== Верхняя половина ===== */
