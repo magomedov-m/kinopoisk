@@ -1,14 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useFavourites } from "../../features/favourites/context";
 
 export default function MovieCard({ movie }) {
+  const navigate = useNavigate();
   const { toggle, isFavourite } = useFavourites();
   const fav = isFavourite(movie.id);
 
   const rating = movie.rating?.kp || movie.rating?.imdb;
 
+  const handleCardClick = () => {
+    navigate(`/movie/${movie.id}`);
+  };
+
   return (
-    <div className="movieCard">
+    <div className="movieCard" onClick={handleCardClick}>
       <div className="movieCard__poster">
         {movie.poster?.previewUrl && (
           <img src={movie.poster.previewUrl} alt={movie.name || ""} />
