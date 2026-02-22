@@ -5,6 +5,8 @@ export default function MovieCard({ movie }) {
   const { toggle, isFavourite } = useFavourites();
   const fav = isFavourite(movie.id);
 
+  const rating = movie.rating?.kp || movie.rating?.imdb;
+
   return (
     <div className="movieCard">
       <div className="movieCard__poster">
@@ -12,9 +14,14 @@ export default function MovieCard({ movie }) {
           <img src={movie.poster.previewUrl} alt={movie.name || ""} />
         )}
 
+        {rating && <div className="rating-badge">★ {rating.toFixed(1)}</div>}
+
         <button
           className={`movieCard__heart ${fav ? "active" : ""}`}
-          onClick={() => toggle(movie)}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggle(movie);
+          }}
         >
           {fav ? <FaHeart /> : <FaRegHeart />}
         </button>
@@ -32,22 +39,17 @@ export default function MovieCard({ movie }) {
           </div>
         )}
 
-        {movie.rating?.imdb && (
-          <div className="movieCard__rating">
-            IMDb: {movie.rating.imdb}
-          </div>
-        )}
-
-        {movie.genres && (
+        {movie.genres && movie.genres.length > 0 && (
           <div className="movieCard__genres">
-            {movie.genres.map((g) => g.name).join(", ")}
+            {movie.genres
+              .slice(0, 2)
+              .map((g) => g.name)
+              .join(", ")}
           </div>
         )}
 
         {movie.shortDescription && (
-          <p className="movieCard__description">
-            {movie.shortDescription.slice(0, 100)}...
-          </p>
+          <p className="movieCard__description">{movie.shortDescription}</p>
         )}
       </div>
     </div>

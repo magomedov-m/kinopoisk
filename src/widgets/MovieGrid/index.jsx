@@ -11,9 +11,15 @@ export default function MovieGrid({ category, onAddToFavourites }) {
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
-      const data = await fetchMoviesByCategory(category);
-      setMovies(data);
-      setLoading(false);
+      try {
+        const data = await fetchMoviesByCategory(category);
+        setMovies(data.movies || []);
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+        setMovies([]);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchMovies();
   }, [category]);
@@ -24,7 +30,11 @@ export default function MovieGrid({ category, onAddToFavourites }) {
   return (
     <div className="movie-grid">
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} onAddToFavourites={onAddToFavourites} />
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          onAddToFavourites={onAddToFavourites}
+        />
       ))}
     </div>
   );
