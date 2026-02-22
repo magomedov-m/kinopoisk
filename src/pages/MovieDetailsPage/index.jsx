@@ -18,23 +18,32 @@ export default function MovieDetailsPage() {
 
   const isFav = movie ? isFavourite(movie.id) : false;
 
+  // Открыть трейлер на YouTube
+  const openTrailerOnYouTube = () => {
+    if (!movie) return;
+    const searchQuery = encodeURIComponent(`${movie.name || movie.alternativeName} ${movie.year} трейлер`);
+    window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank');
+  };
+
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       setError(null);
       
       try {
-        const [movieData, videosData] = await Promise.all([
-          fetchMovieById(id),
-          fetchMovieVideos(id)
-        ]);
-        
+        const movieData = await fetchMovieById(id);
         setMovie(movieData);
-        setVideos(videosData);
         
-        // Автоматически выбираем первый трейлер
-        if (videosData.length > 0) {
-          setActiveVideo(videosData[0]);
+        // Пробуем получить видео, но не блокируем загрузку если не получится
+        try {
+          const videosData = await fetchMovieVideos(id);
+          setVideos(videosData);
+          if (videosData.length > 0) {
+            setActiveVideo(videosData[0]);
+          }
+        } catch (videoErr) {
+          console.log("Видео недоступны, будет использован YouTube");
+          setVideos([]);
         }
       } catch (err) {
         setError("Не удалось загрузить информацию о фильме");
@@ -168,14 +177,12 @@ export default function MovieDetailsPage() {
                   {isFav ? "В избранном" : "В избранное"}
                 </button>
 
-                {videos.length > 0 && (
-                  <button 
-                    className="movie-details__trailer"
-                    onClick={() => setShowVideo(true)}
-                  >
-                    <FaPlay /> Смотреть трейлер
-                  </button>
-                )}
+                <button 
+                  className="movie-details__trailer"
+                  onClick={openTrailerOnYouTube}
+                >
+                  <FaPlay /> Смотреть трейлер
+                </button>
               </div>
             </div>
           </div>
@@ -258,9 +265,10 @@ export default function MovieDetailsPage() {
       </div>
 
       {/* Видео */}
-      {videos.length > 0 && (
-        <div className="movie-details__section">
-          <h2>Видео</h2>
+      <div className="movie-details__section">
+        <h2>Видео</h2>
+        
+        {videos.length > 0 ? (
           <div className="movie-details__videos">
             {videos.map((video) => (
               <div 
@@ -284,8 +292,15 @@ export default function MovieDetailsPage() {
               </div>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="movie-details__youtube-search">
+            <p>Официальные трейлеры недоступны</p>
+            <button className="movie-details__youtube-btn" onClick={openTrailerOnYouTube}>
+              <FaPlay /> Искать трейлер на YouTube
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* Модальное окно с видео */}
       {showVideo && activeVideo && (

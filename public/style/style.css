@@ -1454,6 +1454,40 @@ body::before {
   transform: scale(1.2);
 }
 
+/* YouTube Search Fallback */
+.movie-details__youtube-search {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-card);
+  border-radius: 16px;
+}
+
+.movie-details__youtube-search p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.movie-details__youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.movie-details__youtube-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
 /* Адаптив */
 @media (max-width: 768px) {
   .movie-details__content {

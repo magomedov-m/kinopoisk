@@ -1,4 +1,5 @@
-const API_KEY = "1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT";
+// const API_KEY = "1DAP24W-ASD4WA3-N0R7Q2W-3T3KNFT";
+const API_KEY = "PYWN56W-C3GMT96-Q8V88PF-B9QY35K";
 const BASE_URL = "https://api.kinopoisk.dev/v1.4/movie";
 const SEARCH_URL = "https://api.kinopoisk.dev/v1.4/movie/search";
 
