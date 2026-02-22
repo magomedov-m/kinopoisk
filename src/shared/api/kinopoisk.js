@@ -205,3 +205,51 @@ export const fetchMoviesByYear = async (year, page = 1, limit = 20) => {
     page: data.page,
   };
 };
+
+/**
+ * Получить детальную информацию о фильме по ID
+ */
+export const fetchMovieById = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${id}`, {
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP статус: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Ошибка при получении фильма:", error);
+    throw error;
+  }
+};
+
+/**
+ * Получить трейлеры/видео фильма
+ */
+export const fetchMovieVideos = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${id}/videos`, {
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP статус: ${response.status}`);
+    }
+
+    const data = await response.json();
+    // Фильтруем только трейлеры
+    return data.docs?.filter(
+      (video) => video.type === "trailer" || video.type === "teaser"
+    ) || [];
+  } catch (error) {
+    console.error("Ошибка при получении видео:", error);
+    return [];
+  }
+};
