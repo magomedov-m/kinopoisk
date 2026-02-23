@@ -1,0 +1,369 @@
+[00:00:21.279] Server  LOG     ✓ Ready in 18.9s
+[00:00:24.353] Server  LOG     ○ Compiling / ...
+[00:00:37.269] Server  ERROR   ⨯ ./src/app/page.jsx:6:1
+Module not found: Can't resolve '../../features/favourites/context'
+  4 | import Categories from "../../widgets/Categories";
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+> 6 | import { useFavourites } from "../../features/favourites/context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | const allCategories = [
+  9 |   "триллер",
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.jsx:4:1
+Module not found: Can't resolve '../../widgets/Categories'
+  2 |
+  3 | import { useState } from "react";
+> 4 | import Categories from "../../widgets/Categories";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.jsx:5:1
+Module not found: Can't resolve '../../widgets/MovieGrid'
+  3 | import { useState } from "react";
+  4 | import Categories from "../../widgets/Categories";
+> 5 | import MovieGrid from "../../widgets/MovieGrid";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+  8 | const allCategories = [
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/layout.jsx:5:1
+Module not found: Can't resolve '../styles/globals.css'
+  3 | import { FavouritesProvider } from "../features/favourites/context";
+  4 | import Header from "../widgets/Header";
+> 5 | import "../styles/globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({ children }) {
+  8 |   return (
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.jsx [Client Component Browser]
+    ./src/app/layout.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.jsx [Client Component SSR]
+    ./src/app/layout.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:40.387] Browser ERROR   uncaughtError: Error: ./src/app/page.jsx:6:1
+Module not found: Can't resolve '../../features/favourites/context'
+  4 | import Categories from "../../widgets/Categories";
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+> 6 | import { useFavourites } from "../../features/favourites/context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | const allCategories = [
+  9 |   "триллер",
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:40.654] Browser ERROR   ./src/app/page.jsx:6:1
+Module not found: Can't resolve '../../features/favourites/context'
+  4 | import Categories from "../../widgets/Categories";
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+> 6 | import { useFavourites } from "../../features/favourites/context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | const allCategories = [
+  9 |   "триллер",
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.654] Browser ERROR   ./src/app/page.jsx:4:1
+Module not found: Can't resolve '../../widgets/Categories'
+  2 |
+  3 | import { useState } from "react";
+> 4 | import Categories from "../../widgets/Categories";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.654] Browser ERROR   ./src/app/page.jsx:5:1
+Module not found: Can't resolve '../../widgets/MovieGrid'
+  3 | import { useState } from "react";
+  4 | import Categories from "../../widgets/Categories";
+> 5 | import MovieGrid from "../../widgets/MovieGrid";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+  8 | const allCategories = [
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.654] Browser ERROR   ./src/app/layout.jsx:5:1
+Module not found: Can't resolve '../styles/globals.css'
+  3 | import { FavouritesProvider } from "../features/favourites/context";
+  4 | import Header from "../widgets/Header";
+> 5 | import "../styles/globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({ children }) {
+  8 |   return (
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.jsx [Client Component Browser]
+    ./src/app/layout.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.jsx [Client Component SSR]
+    ./src/app/layout.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.654] Browser ERROR   ./src/app/page.jsx:6:1
+Module not found: Can't resolve '../../features/favourites/context'
+  4 | import Categories from "../../widgets/Categories";
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+> 6 | import { useFavourites } from "../../features/favourites/context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | const allCategories = [
+  9 |   "триллер",
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.655] Browser ERROR   ./src/app/page.jsx:4:1
+Module not found: Can't resolve '../../widgets/Categories'
+  2 |
+  3 | import { useState } from "react";
+> 4 | import Categories from "../../widgets/Categories";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.655] Browser ERROR   ./src/app/page.jsx:5:1
+Module not found: Can't resolve '../../widgets/MovieGrid'
+  3 | import { useState } from "react";
+  4 | import Categories from "../../widgets/Categories";
+> 5 | import MovieGrid from "../../widgets/MovieGrid";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+  8 | const allCategories = [
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:40.655] Browser ERROR   ./src/app/layout.jsx:5:1
+Module not found: Can't resolve '../styles/globals.css'
+  3 | import { FavouritesProvider } from "../features/favourites/context";
+  4 | import Header from "../widgets/Header";
+> 5 | import "../styles/globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({ children }) {
+  8 |   return (
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.jsx [Client Component Browser]
+    ./src/app/layout.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.jsx [Client Component SSR]
+    ./src/app/layout.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:41.020] Browser ERROR   ./src/app/page.jsx:6:1
+Module not found: Can't resolve '../../features/favourites/context'
+  4 | import Categories from "../../widgets/Categories";
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+> 6 | import { useFavourites } from "../../features/favourites/context";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | const allCategories = [
+  9 |   "триллер",
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:41.020] Browser ERROR   ./src/app/page.jsx:4:1
+Module not found: Can't resolve '../../widgets/Categories'
+  2 |
+  3 | import { useState } from "react";
+> 4 | import Categories from "../../widgets/Categories";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import MovieGrid from "../../widgets/MovieGrid";
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:41.021] Browser ERROR   ./src/app/page.jsx:5:1
+Module not found: Can't resolve '../../widgets/MovieGrid'
+  3 | import { useState } from "react";
+  4 | import Categories from "../../widgets/Categories";
+> 5 | import MovieGrid from "../../widgets/MovieGrid";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { useFavourites } from "../../features/favourites/context";
+  7 |
+  8 | const allCategories = [
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.jsx [Client Component Browser]
+    ./src/app/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.jsx [Client Component SSR]
+    ./src/app/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:41.021] Browser ERROR   ./src/app/layout.jsx:5:1
+Module not found: Can't resolve '../styles/globals.css'
+  3 | import { FavouritesProvider } from "../features/favourites/context";
+  4 | import Header from "../widgets/Header";
+> 5 | import "../styles/globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({ children }) {
+  8 |   return (
+
+Import traces:
+  Client Component Browser:
+    ./src/app/layout.jsx [Client Component Browser]
+    ./src/app/layout.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/layout.jsx [Client Component SSR]
+    ./src/app/layout.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.500] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:00:52.500] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/shared/lib/router/router.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:00:52.501] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:00:54.096] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
