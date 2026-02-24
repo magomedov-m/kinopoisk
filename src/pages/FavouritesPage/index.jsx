@@ -3,6 +3,11 @@ import { useFavourites } from "../../features/favourites/context";
 import MovieFavouriteCard from "../../entities/movie/MovieFavouriteCard.jsx";
 import EmptyState from "../../shared/ui/EmptyState.jsx";
 
+// ОПТИМИЗАЦИЯ 10: При каждом рендере FavouritesPage вызывается useFavourites(),
+// который возвращает новые ссылки на функции toggle и isFavourite.
+// Это вызывает перерисовку всех MovieFavouriteCard.
+// Рекомендуется мемоизировать контекст или использовать React.memo для карточек.
+
 export default function FavouritesPage() {
   const context = useFavourites();
 

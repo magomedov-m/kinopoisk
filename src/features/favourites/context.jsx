@@ -25,6 +25,12 @@ export function FavouritesProvider({ children }) {
     }
   };
 
+  // ОПТИМИЗАЦИЯ 9: isFavourite использует .some() при каждом вызове, что O(n).
+  // При большом количестве избранного это может быть медленно.
+  // Рекомендуется использовать Set для хранения ID:
+  // const [favouritesSet, setFavouritesSet] = useState(new Set());
+  // Тогда проверка будет O(1): favouritesSet.has(id)
+
   const isFavourite = (id) => favourites.some((m) => m.id === id);
 
   return (

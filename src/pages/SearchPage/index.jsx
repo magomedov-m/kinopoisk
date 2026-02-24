@@ -29,6 +29,10 @@ export default function SearchPage() {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [searchKey, setSearchKey] = useState(0);
 
+  // ОПТИМИЗАЦИЯ: Использование ref для хранения актуальных фильтров — хороший подход.
+  // Однако doSearch создаётся при каждом рендере. Рекомендуется обернуть в useCallback:
+  // const doSearch = useCallback(async (pageNum = 1) => { ... }, [filters, page]);
+
   // Ref для хранения актуальных фильтров
   const filtersRef = useRef(filters);
   filtersRef.current = filters;

@@ -56,7 +56,7 @@ const filterWithPoster = (movies) => {
 /**
  * Получить фильмы по категории (жанру)
  */
-export const fetchMoviesByCategory = async (category, year = 2024, page = 1, limit = 20) => {
+export const fetchMoviesByCategory = async (category, year = 2024, page = 1, limit = 5) => {
   const data = await fetchFromAPI({
     page,
     limit,

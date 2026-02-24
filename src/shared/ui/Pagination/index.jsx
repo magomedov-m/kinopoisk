@@ -5,10 +5,14 @@ import "./Pagination.scss";
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 
+  // ОПТИМИЗАЦИЯ 6: getPageNumbers вычисляется при каждом рендере.
+  // Рекомендуется обернуть в useMemo:
+  // const pageNumbers = useMemo(() => getPageNumbers(), [currentPage, totalPages]);
+
   const getPageNumbers = () => {
     const pages = [];
     const maxVisible = 5;
-    
+
     if (totalPages <= maxVisible) {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
@@ -30,7 +34,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         pages.push(totalPages);
       }
     }
-    
+
     return pages;
   };
 
