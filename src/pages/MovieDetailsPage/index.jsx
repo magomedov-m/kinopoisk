@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { FaHeart, FaRegHeart, FaPlay, FaArrowLeft, FaStar, FaClock, FaCalendar, FaFilm, FaGlobe } from "react-icons/fa";
+import {
+  FaHeart,
+  FaRegHeart,
+  FaPlay,
+  FaArrowLeft,
+  FaStar,
+  FaClock,
+  FaCalendar,
+  FaFilm,
+  FaGlobe,
+} from "react-icons/fa";
 import { fetchMovieById, fetchMovieVideos } from "../../shared/api/kinopoisk";
 import { useFavourites } from "../../features/favourites/context";
+import Loader from "../../shared/ui/Loader";
 
 export default function MovieDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { toggle, isFavourite } = useFavourites();
-  
+
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,19 +32,24 @@ export default function MovieDetailsPage() {
   // Открыть трейлер на YouTube
   const openTrailerOnYouTube = () => {
     if (!movie) return;
-    const searchQuery = encodeURIComponent(`${movie.name || movie.alternativeName} ${movie.year} трейлер`);
-    window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank');
+    const searchQuery = encodeURIComponent(
+      `${movie.name || movie.alternativeName} ${movie.year} трейлер`,
+    );
+    window.open(
+      `https://www.youtube.com/results?search_query=${searchQuery}`,
+      "_blank",
+    );
   };
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
       setError(null);
-      
+
       try {
         const movieData = await fetchMovieById(id);
         setMovie(movieData);
-        
+
         // Пробуем получить видео, но не блокируем загрузку если не получится
         try {
           const videosData = await fetchMovieVideos(id);
@@ -67,30 +83,27 @@ export default function MovieDetailsPage() {
 
   // Получение ID видео для YouTube
   const getYoutubeEmbedUrl = (url) => {
-    if (!url) return '';
-    
+    if (!url) return "";
+
     // youtube.com/watch?v=VIDEO_ID
     let match = url.match(/[?&]v=([^&]+)/);
     if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
-    
+
     // youtu.be/VIDEO_ID
     match = url.match(/youtu\.be\/([^?]+)/);
     if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
-    
+
     // youtube.com/embed/VIDEO_ID
     match = url.match(/youtube\.com\/embed\/([^?]+)/);
     if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
-    
+
     return url;
   };
 
   if (loading) {
     return (
-      <div className="movie-details">
-        <div className="movie-details__loading">
-          <div className="loader"></div>
-          <p>Загрузка...</p>
-        </div>
+      <div className="movie-loader">
+        <Loader />
       </div>
     );
   }
@@ -114,14 +127,14 @@ export default function MovieDetailsPage() {
       </button>
 
       {/* Hero секция с постером */}
-      <div 
+      <div
         className="movie-details__hero"
         style={{
-          backgroundImage: movie.backdrop?.url 
+          backgroundImage: movie.backdrop?.url
             ? `url(${movie.backdrop.url})`
             : movie.poster?.url
-            ? `url(${movie.poster.url})`
-            : 'none'
+              ? `url(${movie.poster.url})`
+              : "none",
         }}
       >
         <div className="movie-details__hero-overlay">
@@ -138,7 +151,7 @@ export default function MovieDetailsPage() {
               <h1 className="movie-details__title">
                 {movie.name || movie.alternativeName}
               </h1>
-              
+
               {movie.alternativeName && movie.name && (
                 <p className="movie-details__original-title">
                   {movie.alternativeName}
@@ -152,13 +165,24 @@ export default function MovieDetailsPage() {
                   </span>
                 )}
                 {movie.year && (
-                  <span><FaCalendar /> {movie.year}</span>
+                  <span>
+                    <FaCalendar /> {movie.year}
+                  </span>
                 )}
                 {movie.movieLength && (
-                  <span><FaClock /> {formatDuration(movie.movieLength)}</span>
+                  <span>
+                    <FaClock /> {formatDuration(movie.movieLength)}
+                  </span>
                 )}
                 {movie.type && (
-                  <span><FaFilm /> {movie.type === "movie" ? "Фильм" : movie.type === "tv-series" ? "Сериал" : movie.type}</span>
+                  <span>
+                    <FaFilm />{" "}
+                    {movie.type === "movie"
+                      ? "Фильм"
+                      : movie.type === "tv-series"
+                        ? "Сериал"
+                        : movie.type}
+                  </span>
                 )}
               </div>
 
@@ -169,7 +193,7 @@ export default function MovieDetailsPage() {
               </div>
 
               <div className="movie-details__actions">
-                <button 
+                <button
                   className={`movie-details__fav ${isFav ? "active" : ""}`}
                   onClick={() => toggle(movie)}
                 >
@@ -177,7 +201,7 @@ export default function MovieDetailsPage() {
                   {isFav ? "В избранном" : "В избранное"}
                 </button>
 
-                <button 
+                <button
                   className="movie-details__trailer"
                   onClick={openTrailerOnYouTube}
                 >
@@ -204,13 +228,17 @@ export default function MovieDetailsPage() {
           {movie.countries?.length > 0 && (
             <div className="movie-details__fact">
               <span className="label">Страна</span>
-              <span className="value">{movie.countries.map(c => c.name).join(", ")}</span>
+              <span className="value">
+                {movie.countries.map((c) => c.name).join(", ")}
+              </span>
             </div>
           )}
           {movie.genres?.length > 0 && (
             <div className="movie-details__fact">
               <span className="label">Жанр</span>
-              <span className="value">{movie.genres.map(g => g.name).join(", ")}</span>
+              <span className="value">
+                {movie.genres.map((g) => g.name).join(", ")}
+              </span>
             </div>
           )}
           {movie.year && (
@@ -234,7 +262,9 @@ export default function MovieDetailsPage() {
           {movie.rating?.imdb && (
             <div className="movie-details__fact">
               <span className="label">Рейтинг IMDb</span>
-              <span className="value rating">{movie.rating.imdb.toFixed(1)}</span>
+              <span className="value rating">
+                {movie.rating.imdb.toFixed(1)}
+              </span>
             </div>
           )}
           {movie.votes?.kp && (
@@ -267,11 +297,11 @@ export default function MovieDetailsPage() {
       {/* Видео */}
       <div className="movie-details__section">
         <h2>Видео</h2>
-        
+
         {videos.length > 0 ? (
           <div className="movie-details__videos">
             {videos.map((video) => (
-              <div 
+              <div
                 key={video.id}
                 className={`movie-details__video ${activeVideo?.id === video.id ? "active" : ""}`}
                 onClick={() => {
@@ -288,14 +318,19 @@ export default function MovieDetailsPage() {
                   </div>
                 </div>
                 <span className="movie-details__video-title">{video.name}</span>
-                <span className="movie-details__video-type">{video.type === "trailer" ? "Трейлер" : "Тизер"}</span>
+                <span className="movie-details__video-type">
+                  {video.type === "trailer" ? "Трейлер" : "Тизер"}
+                </span>
               </div>
             ))}
           </div>
         ) : (
           <div className="movie-details__youtube-search">
             <p>Официальные трейлеры недоступны</p>
-            <button className="movie-details__youtube-btn" onClick={openTrailerOnYouTube}>
+            <button
+              className="movie-details__youtube-btn"
+              onClick={openTrailerOnYouTube}
+            >
               <FaPlay /> Искать трейлер на YouTube
             </button>
           </div>
@@ -304,12 +339,22 @@ export default function MovieDetailsPage() {
 
       {/* Модальное окно с видео */}
       {showVideo && activeVideo && (
-        <div className="movie-details__video-modal" onClick={() => setShowVideo(false)}>
-          <div className="movie-details__video-player" onClick={(e) => e.stopPropagation()}>
-            <button className="movie-details__video-close" onClick={() => setShowVideo(false)}>
+        <div
+          className="movie-details__video-modal"
+          onClick={() => setShowVideo(false)}
+        >
+          <div
+            className="movie-details__video-player"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="movie-details__video-close"
+              onClick={() => setShowVideo(false)}
+            >
               ×
             </button>
-            {activeVideo.url.includes('youtube.com') || activeVideo.url.includes('youtu.be') ? (
+            {activeVideo.url.includes("youtube.com") ||
+            activeVideo.url.includes("youtu.be") ? (
               <iframe
                 src={getYoutubeEmbedUrl(activeVideo.url)}
                 title={activeVideo.name}
@@ -318,11 +363,11 @@ export default function MovieDetailsPage() {
                 allowFullScreen
               ></iframe>
             ) : (
-              <video 
-                src={activeVideo.url} 
-                controls 
-                autoPlay 
-                style={{ width: '100%', height: '100%', borderRadius: '12px' }}
+              <video
+                src={activeVideo.url}
+                controls
+                autoPlay
+                style={{ width: "100%", height: "100%", borderRadius: "12px" }}
               />
             )}
           </div>
