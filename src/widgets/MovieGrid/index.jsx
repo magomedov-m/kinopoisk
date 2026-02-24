@@ -4,6 +4,11 @@ import MovieCard from "../../entities/movie/MovieCard";
 import Loader from "../../shared/ui/Loader";
 import EmptyState from "../../shared/ui/EmptyState";
 
+// ОПТИМИЗАЦИЯ 1: useEffect с пустым массивом зависимостей [] отсутствует, что правильно.
+// Однако, fetchMovies создаётся при каждом рендере. Следует обернуть в useCallback:
+// const fetchMovies = useCallback(async () => { ... }, [category]);
+// Также рекомендуется добавить useMemo для мемоизации результатов, если они используются повторно.
+
 export default function MovieGrid({ category, onAddToFavourites }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);

@@ -1,6 +1,11 @@
 import { MdDelete } from "react-icons/md";
 import { useFavourites } from "../../features/favourites/context";
 
+// ОПТИМИЗАЦИЯ 3: Компонент рендерится в цикле в FavouritesPage.
+// Рекомендуется обернуть в React.memo для предотвращения лишних рендеров:
+// export default React.memo(function MovieFavouriteCard({ movie }) { ... });
+// Также useFavourites() вызывается при каждом рендере каждой карточки.
+
 export default function MovieFavouriteCard({ movie }) {
   const { removeFromFavourites } = useFavourites();
 

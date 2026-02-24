@@ -74,6 +74,10 @@ export default function MovieDetailsPage() {
     }
   }, [id]);
 
+  // ОПТИМИЗАЦИЯ 8: formatDuration вызывается при каждом рендере (несколько раз).
+  // Рекомендуется вынести за пределы компонента как чистую функцию или обернуть в useMemo,
+  // если она зависит от состояния/пропсов. Также getYoutubeEmbedUrl создаётся при каждом рендере.
+
   const formatDuration = (minutes) => {
     if (!minutes) return "—";
     const hours = Math.floor(minutes / 60);

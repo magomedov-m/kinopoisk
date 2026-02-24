@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import "./SearchBar.scss";
 
-export default function SearchBar({ onSearch, placeholder = "Поиск фильмов..." }) {
+export default function SearchBar({
+  onSearch,
+  placeholder = "Поиск фильмов...",
+}) {
   const [query, setQuery] = useState("");
+
+  // ОПТИМИЗАЦИЯ 11: handleSubmit создаётся при каждом рендере.
+  // Рекомендуется обернуть в useCallback: const handleSubmit = useCallback((e) => { ... }, [query, onSearch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

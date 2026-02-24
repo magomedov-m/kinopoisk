@@ -44,13 +44,18 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
     onFilterChange({ ...filters, [key]: value });
   };
 
+  // ОПТИМИЗАЦИЯ 5: Массив years создаётся при каждом рендере компонента.
+  // Рекомендуется вынести его за пределы компонента или мемоизировать с помощью useMemo:
+  // const years = useMemo(() => Array.from({ length: 50 }, (_, i) => currentYear - i), [currentYear]);
+  // Или вынести создание years за пределы компонента как константу.
+
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 50 }, (_, i) => currentYear - i);
 
   return (
     <div className="filter-panel">
-      <button 
-        className="filter-panel__toggle" 
+      <button
+        className="filter-panel__toggle"
         onClick={() => setIsOpen(!isOpen)}
       >
         <FaFilter />
@@ -70,7 +75,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
               >
                 <option value="">Все жанры</option>
                 {GENRES.map((g) => (
-                  <option key={g} value={g}>{g}</option>
+                  <option key={g} value={g}>
+                    {g}
+                  </option>
                 ))}
               </select>
             </div>
@@ -83,7 +90,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
                 onChange={(e) => handleChange("type", e.target.value)}
               >
                 {TYPES.map((t) => (
-                  <option key={t.value} value={t.value}>{t.label}</option>
+                  <option key={t.value} value={t.value}>
+                    {t.label}
+                  </option>
                 ))}
               </select>
             </div>
@@ -99,7 +108,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
               >
                 <option value="">Любой</option>
                 {years.map((y) => (
-                  <option key={y} value={y}>{y}</option>
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
                 ))}
               </select>
             </div>
@@ -113,7 +124,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
               >
                 <option value="">Любой</option>
                 {years.map((y) => (
-                  <option key={y} value={y}>{y}</option>
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
                 ))}
               </select>
             </div>
@@ -129,7 +142,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
               >
                 <option value="">Любой</option>
                 {[9, 8, 7, 6, 5, 4, 3].map((r) => (
-                  <option key={r} value={r}>{r}+</option>
+                  <option key={r} value={r}>
+                    {r}+
+                  </option>
                 ))}
               </select>
             </div>
@@ -142,7 +157,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
                 onChange={(e) => handleChange("sortField", e.target.value)}
               >
                 {SORT_OPTIONS.map((s) => (
-                  <option key={s.value} value={s.value}>{s.label}</option>
+                  <option key={s.value} value={s.value}>
+                    {s.label}
+                  </option>
                 ))}
               </select>
             </div>
@@ -154,7 +171,9 @@ export default function FilterPanel({ filters, onFilterChange, onReset }) {
               <label>Порядок</label>
               <select
                 value={filters.sortType}
-                onChange={(e) => handleChange("sortType", Number(e.target.value))}
+                onChange={(e) =>
+                  handleChange("sortType", Number(e.target.value))
+                }
               >
                 <option value={-1}>По убыванию</option>
                 <option value={1}>По возрастанию</option>

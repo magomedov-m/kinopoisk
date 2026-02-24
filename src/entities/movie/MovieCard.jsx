@@ -1,17 +1,28 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useFavourites } from "../../features/favourites/context";
+import { useCallback } from "react";
 
-export default function MovieCard({ movie }) {
+const MovieCard = React.memo(function MovieCard({ movie }) {
+  console.log(movie)
   const navigate = useNavigate();
   const { toggle, isFavourite } = useFavourites();
   const fav = isFavourite(movie.id);
 
   const rating = movie.rating?.kp || movie.rating?.imdb;
 
-  const handleCardClick = () => {
+  const handleCardClick = useCallback(() => {
     navigate(`/movie/${movie.id}`);
-  };
+  }, [navigate, movie.id]);
+
+  const handleToggleFavourite = useCallback(
+    (e) => {
+      e.stopPropagation();
+      toggle(movie);
+    },
+    [toggle, movie],
+  );
 
   return (
     <div className="movieCard" onClick={handleCardClick}>
@@ -24,10 +35,7 @@ export default function MovieCard({ movie }) {
 
         <button
           className={`movieCard__heart ${fav ? "active" : ""}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            toggle(movie);
-          }}
+          onClick={handleToggleFavourite}
         >
           {fav ? <FaHeart /> : <FaRegHeart />}
         </button>
@@ -60,4 +68,6 @@ export default function MovieCard({ movie }) {
       </div>
     </div>
   );
-}
+});
+
+export default MovieCard;
