@@ -1094,6 +1094,10 @@ body::before {
   transform: translateX(-5px);
 }
 
+.movie-loader {
+  margin-top: 30vh;
+}
+
 .movie-details__loading {
   display: flex;
   flex-direction: column;
